@@ -1,93 +1,34 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br />
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener"
-        >vue-cli documentation</a
-      >.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
-        >
-      </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener"
-          >Forum</a
-        >
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener"
-          >Community Chat</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener"
-          >Twitter</a
-        >
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
-        >
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-devtools#vue-devtools"
-          target="_blank"
-          rel="noopener"
-          >vue-devtools</a
-        >
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
-          >vue-loader</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-          rel="noopener"
-          >awesome-vue</a
-        >
-      </li>
-    </ul>
-  </div>
+  <form>
+    <label>Email:</label>
+    <input type="email" required v-model="email" />
+    <label>Password:</label>
+    <input type="password" required v-model="password" />
+    <label for="">Role:</label>
+    <select name="" id="">
+      <option value="developer">Web designer</option>
+      <option value="programmer">Web programmer</option>
+    </select>
+    <div id="terms">
+      <input type="checkbox" required />
+      <label>ACCEPT ALL TERMS AND CONDITIONS</label>
+    </div>
+    <div class="submit">
+      <button>Create accaount</button>
+    </div>
+  </form>
+  <p>Email:{{ email }}</p>
+  <p>password:{{ password }}</p>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
   name: "HelloWorld",
   props: {
     msg: String,
@@ -96,19 +37,50 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
+<style>
+form {
+  max-width: 420px;
+  margin: 30px auto;
+  background: #dddd;
+  text-align: left;
+  padding: 40px;
+  border-radius: 10px;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
+label {
+  color: #aaaa;
   display: inline-block;
-  margin: 0 10px;
+  margin: 25px 0 15px;
+  font-size: 0.6cm;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
 }
-a {
-  color: #42b983;
+input,
+select {
+  display: block;
+  padding: 10px 6px;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  color: #555;
+}
+input[type="checkbox"] {
+  display: inline-block;
+  width: 10px;
+  margin: 0 10px 0 0;
+  position: relative;
+  top: 2px;
+}
+button {
+  background: rgb(16, 77, 245);
+  border: 0;
+  padding: 10px 20px;
+  margin-top: 20px;
+  color: white;
+  border-radius: 20px;
+}
+.submit {
+  text-align: center;
 }
 </style>
